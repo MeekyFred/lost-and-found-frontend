@@ -1,0 +1,49 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+  .app__file__input {
+    @apply w-full;
+
+    .file {
+      @apply rounded border border-primary;
+    }
+
+    .upload {
+      @apply bg-[#FCFDFE] border-dashed gap-2 w-full h-[100px] cursor-pointer mb-2;
+
+      p {
+        @apply text-[#777E90] text-sm;
+      }
+    }
+
+    .selected {
+      @apply bg-primary/[0.04] flex items-center justify-between p-3 w-full mb-2;
+
+      svg {
+        @apply text-primary cursor-pointer;
+      }
+
+      .left-part {
+        @apply flex items-center justify-start gap-1;
+
+        p {
+          @apply text-sm;
+        }
+      }
+    }
+
+    .uploading {
+      @apply w-full flex flex-col items-center justify-center gap-2 bg-[#FCFDFE] p-4 mb-2;
+
+      p {
+        @apply text-sm;
+      }
+    }
+
+    .file__info {
+      @apply text-[#777E90] text-sm;
+    }
+  }
+}

@@ -13,8 +13,37 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        primary: "#ff8e31",
+        secondary: "#5d6d7e",
+        tertiary: "#3f3d56",
+        accent: "#00ffff",
+        info: "#2563eb",
+        success: "#00ff00",
+        warning: "#fcd34d",
+        error: "#ff0000",
+      },
+      width: {
+        page: "calc(100vw-260px)",
+      },
     },
   },
-  plugins: [],
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#ff8e31",
+          secondary: "#5d6d7e",
+          tertiary: "#3f3d56",
+          accent: "#00ffff",
+          info: "#2563eb",
+          success: "#00ff00",
+          warning: "#fcd34d",
+          error: "#ff0000",
+        },
+      },
+    ],
+  },
+  plugins: [require("daisyui")],
 };
 export default config;

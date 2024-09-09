@@ -1,0 +1,15 @@
+.app__global-error {
+  @apply w-full h-[90vh] bg-transparent flex items-center justify-center;
+
+  .centered {
+    @apply flex flex-col items-center justify-center gap-4;
+
+    h2 {
+      @apply text-lg font-medium;
+    }
+
+    h5 {
+      @apply text-error;
+    }
+  }
+}

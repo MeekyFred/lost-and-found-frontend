@@ -1,0 +1,59 @@
+.app__register {
+  @apply lg:mt-[50px] px-14;
+
+  .go-back-button-container {
+    @apply mb-6;
+
+    button {
+      @apply border border-solid border-[#EDEFF5] shadow-[0px_6px_20px_0px_#A2A1B71A] bg-[#FFFFFF] py-2 px-3 flex items-center rounded-lg gap-x-[10px];
+
+      span {
+        @apply text-[#676767] text-sm;
+      }
+    }
+  }
+
+  form {
+    @apply w-full mt-4;
+
+    .form-info {
+      @apply w-full flex items-baseline justify-start gap-2 mb-1;
+
+      label {
+        @apply w-fit text-base font-normal;
+
+        span {
+          @apply text-[#718096] font-light;
+        }
+      }
+
+      div {
+        @apply w-fit font-medium text-xs text-error;
+      }
+    }
+
+    .formik-field {
+      @apply w-full outline-none border-2 rounded bg-transparent text-sm text-gray-900 p-3 focus:border-primary;
+
+      &::placehoder {
+        @apply text-[#C8C1D1] text-sm;
+      }
+    }
+
+    .input-group {
+      @apply relative w-full flex items-center justify-between;
+
+      input {
+        @apply w-full outline-none border rounded bg-transparent text-sm text-gray-900 lg:mb-4 p-3;
+
+        &::placehoder {
+          @apply text-[#C8C1D1] text-sm;
+        }
+      }
+
+      svg {
+        @apply absolute right-4 top-4 cursor-pointer text-base;
+      }
+    }
+  }
+}

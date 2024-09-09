@@ -1,0 +1,21 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__main-layout {
+    @apply w-full h-screen flex items-center justify-between bg-[#E5F3FF];
+
+    &-image {
+      @apply max-w-[40%] hidden lg:flex items-center justify-center p-10;
+    }
+
+    main.children {
+      @apply min-w-[60%];
+    }
+
+    &-children {
+      @apply w-full;
+    }
+  }
+}

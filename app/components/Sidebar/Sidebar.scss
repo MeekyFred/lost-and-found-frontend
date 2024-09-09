@@ -1,0 +1,50 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__sidebar {
+    @apply hidden lg:fixed w-full max-w-[260px] h-screen bg-[#FFF] py-4 lg:flex flex-col items-center justify-between border-r border-[#EDEFF5] px-6;
+
+    &-top,
+    &-bottom {
+      @apply flex flex-col gap-y-10 w-full;
+
+      .logo {
+        @apply w-10;
+      }
+    }
+
+    // img.logo {
+    //   @apply mb-10;
+    // }
+
+    &-group-name {
+      @apply text-[#718096] font-normal;
+    }
+
+    &-links {
+      @apply w-full;
+    }
+
+    &-link {
+      @apply w-full flex items-center justify-start gap-2 p-3 text-base font-normal cursor-pointer transition-all duration-200 ease-in-out;
+
+      &:hover {
+        @apply bg-[#718096]/[0.08] rounded-full;
+      }
+
+      p {
+        @apply text-[#718096];
+      }
+
+      p.active {
+        @apply text-primary;
+      }
+    }
+
+    .app__sidebar-link.active {
+      @apply bg-primary/[0.08] rounded-full;
+    }
+  }
+}
