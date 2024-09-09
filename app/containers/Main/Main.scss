@@ -1,0 +1,37 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__page-main {
+    @apply w-full h-screen bg-primary;
+
+    .main__section {
+      @apply w-full h-screen flex flex-col justify-center items-center lg:items-start px-14;
+
+      &__title {
+        @apply w-full text-2xl font-bold text-gray-100 mb-2;
+      }
+
+      &__subtitle {
+        @apply w-full text-base text-tertiary mb-8;
+      }
+
+      &__roles {
+        @apply w-full flex flex-col justify-start items-start gap-4 cursor-pointer;
+
+        &__role {
+          @apply w-full flex justify-between items-center gap-4 p-4 bg-secondary text-gray-100 rounded-xl border border-secondary;
+
+          h2 {
+            @apply text-lg font-semibold;
+          }
+
+          p {
+            @apply text-sm;
+          }
+        }
+      }
+    }
+  }
+}

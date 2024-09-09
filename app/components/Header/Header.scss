@@ -1,0 +1,69 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+  .app__header {
+    @apply sticky top-0 z-50 w-full max-w-full min-h-[72px] max-h-[72px] bg-[#FFF] flex items-center justify-between px-6 lg:px-10 border-b border-[#EDEFF5];
+
+    &-left {
+      @apply w-fit;
+
+      p.title {
+        @apply font-medium text-lg;
+      }
+    }
+
+    &-right {
+      @apply w-fit flex items-center justify-end gap-2;
+
+      .icon-button {
+        @apply text-primary fill-primary lg:hidden;
+      }
+    }
+
+    &-menu {
+      @apply z-[60] cursor-pointer lg:hidden w-[35px] h-[35px] rounded-[50%] relative flex justify-center items-center;
+
+      svg {
+        @apply text-primary fill-primary w-[70%] h-[70%];
+      }
+
+      &-content {
+        @apply fixed inset-y-0 right-0 z-[5] p-4 w-4/5 h-screen flex flex-col justify-start items-end gap-4 shadow-lg bg-white;
+
+        &-logo {
+          @apply w-full flex items-center justify-between;
+
+          svg {
+            @apply text-error fill-error my-2 mx-4 w-[35%];
+          }
+        }
+
+        &-links {
+          @apply w-full;
+        }
+
+        &-link {
+          @apply w-full flex items-center justify-start gap-2 p-3 bg-transparent text-base font-normal cursor-pointer transition-all duration-200 ease-in-out;
+
+          &:hover {
+            @apply bg-[#718096]/[0.08] rounded-full;
+          }
+
+          p {
+            @apply text-[#718096];
+          }
+
+          p.active {
+            @apply text-primary;
+          }
+        }
+
+        &-link.active {
+          @apply bg-primary/[0.08] rounded-full;
+        }
+      }
+    }
+  }
+}

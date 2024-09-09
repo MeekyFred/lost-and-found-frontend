@@ -1,0 +1,47 @@
+.app__summary-card {
+  @apply w-full h-[93px] bg-white shadow-sm px-4 rounded-xl flex items-center justify-start gap-3;
+
+  .image {
+    @apply flex items-center justify-center;
+  }
+
+  .info {
+    @apply flex flex-col items-start justify-start;
+
+    .title {
+      @apply text-sm font-normal;
+    }
+
+    .value {
+      @apply font-bold text-lg;
+    }
+
+    .not-number {
+      @apply flex flex-col items-start justify-start;
+
+      .text {
+        @apply font-semibold text-base lg:text-xs;
+      }
+
+      .extra {
+        @apply text-[10px] text-gray-500;
+      }
+    }
+  }
+}
+
+.small {
+  @apply flex-row-reverse justify-between items-center;
+}
+
+.big {
+  @apply flex items-center justify-center gap-2;
+}
+
+.wide {
+  @apply w-full;
+}
+
+.transparent {
+  @apply bg-transparent shadow-none rounded-none px-0;
+}

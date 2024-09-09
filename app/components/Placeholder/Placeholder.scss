@@ -1,0 +1,15 @@
+.app__placeholder {
+  @apply w-full min-h-[40vh] flex items-center justify-center;
+
+  .centered {
+    @apply flex flex-col items-center justify-center gap-2;
+
+    p.text {
+      @apply text-base text-[#A0AEC0] font-normal mb-4;
+    }
+
+    button {
+      @apply font-medium text-sm;
+    }
+  }
+}

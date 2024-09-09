@@ -1,0 +1,29 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__auth-layout {
+    @apply w-full h-screen max-h-screen flex items-center justify-between bg-[#E5F3FF];
+
+    .sidebar__section {
+      @apply w-full h-screen hidden lg:flex flex-col justify-center items-center px-14 bg-primary text-white gap-4;
+
+      h1 {
+        @apply text-xl font-bold mb-4;
+      }
+
+      img {
+        @apply w-full h-auto;
+      }
+
+      p {
+        @apply text-base text-center max-w-[68%];
+      }
+    }
+
+    main {
+      @apply min-w-[60%];
+    }
+  }
+}
