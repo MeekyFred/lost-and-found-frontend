@@ -1,0 +1,105 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__modal__header {
+    @apply w-full;
+
+    p.subtext {
+      @apply text-sm text-[#A0AEC0];
+    }
+  }
+
+  .create__item__modal__body {
+    @apply w-full;
+
+    form {
+      @apply w-full m-0;
+
+      .form-info {
+        @apply flex items-center justify-start gap-2 w-full;
+
+        label {
+          @apply text-base font-normal;
+
+          span {
+            @apply text-[#A0AEC0] text-sm;
+          }
+        }
+
+        div,
+        p {
+          @apply font-medium text-xs text-red-500;
+        }
+      }
+
+      .formik-field {
+        @apply w-full outline-none border-2 rounded bg-transparent text-sm text-gray-900 p-3 focus:border-primary;
+
+        &::placehoder {
+          @apply text-[#C8C1D1] text-sm;
+        }
+      }
+
+      .dropdown-field {
+        @apply cursor-pointer outline-none text-sm border-2 rounded focus:border focus:border-primary;
+
+        option {
+          @apply first-of-type:text-[#C8C1D1] text-sm;
+        }
+      }
+
+      .date-picker {
+        @apply cursor-pointer transition duration-200 ease-in flex items-center justify-between gap-1 px-3 rounded-md outline-none border border-gray-100 focus-within:border-primary min-h-[44px] min-w-[250px] w-full;
+
+        .date {
+          @apply text-sm;
+        }
+
+        .arrow,
+        .calendar {
+          @apply text-sm text-[#6C727F];
+        }
+
+        .react-datepicker-wrapper {
+          @apply h-full w-full;
+
+          .react-datepicker__input-container {
+            @apply h-full;
+
+            input {
+              @apply h-full py-3 pl-3 w-full text-xs outline-none border-none;
+
+              &::placeholder {
+                @apply text-sm;
+              }
+            }
+          }
+        }
+
+        .react-datepicker__navigation {
+          @apply w-full flex items-center justify-between mt-0;
+        }
+
+        .react-datepicker__navigation--previous,
+        .react-datepicker__navigation--next {
+          @apply hidden;
+        }
+
+        .react-datepicker__current-month,
+        .react-datepicker__header__dropdown {
+          @apply cursor-default;
+
+          select {
+            @apply cursor-pointer;
+          }
+        }
+      }
+    }
+
+    button {
+      @apply lg:first:w-[172px] lg:last:w-[132px];
+    }
+  }
+}

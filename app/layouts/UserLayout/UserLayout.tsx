@@ -14,8 +14,6 @@ const UserLayout: React.FC<Props> = ({ children }) => {
 
   return (
     <div className="app__user-layout">
-      <Sidebar />
-
       <div className="main__section">
         <Header title={pageTitle} />
         <main>{children}</main>

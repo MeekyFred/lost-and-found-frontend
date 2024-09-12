@@ -2,28 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --primary: 0, 121, 237;
+    --secondary: 3, 33, 62;
+
+    --swiper-navigation-color: #ff8e31;
+    --swiper-pagination-color: #ff8e31;
+  }
+
+  * {
+    @apply box-border scroll-smooth;
+  }
+
+  body,
+  html {
+    @apply p-0 m-0 overflow-x-hidden bg-[#FBFBFD] antialiased;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  img {
+    @apply transition duration-500;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .app__flex {
+    @apply flex justify-center items-center;
+  }
+
+  .app__bg {
+    @apply bg-white;
+  }
+
+  .lazy-img {
+    @apply blur-lg;
+  }
+
+  .section--hidden {
+    @apply opacity-0 translate-y-32;
+  }
+
+  .head-text {
+    @apply text-3xl lg:text-4xl font-bold leading-normal;
+  }
+
+  .bold-text {
+    @apply text-lg lg:text-xl font-bold text-start leading-normal;
+  }
+
+  .big-text {
+    @apply text-base font-semibold leading-normal;
+  }
+
+  .p-text {
+    @apply text-sm md:text-base font-normal leading-normal;
+  }
+
+  .form-error {
+    @apply text-sm text-error animate-pulse;
+  }
 }
 
 @layer utilities {

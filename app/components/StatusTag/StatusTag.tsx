@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import './StatusTag.scss';
+import "./StatusTag.scss";
 
 type Props = {
   size?: string;
@@ -13,96 +13,69 @@ type Props = {
 };
 
 const StatusTag: React.FC<Props> = ({ onClick, size, status, text, type }) => {
-  const [label, setLabel] = useState('');
-  const [style, setStyle] = useState('');
+  const [label, setLabel] = useState("");
+  const [style, setStyle] = useState("");
 
   useEffect(() => {
     switch (status) {
-      case 'N/A':
-        setLabel('N/A');
-        setStyle('declined');
+      case "N/A":
+        setLabel("N/A");
+        setStyle("declined");
         break;
 
-      case 'APPROVED':
-        setLabel('approved');
-        setStyle('approved');
+      // Item statuses
+
+      case "ARCHIVED":
+        setLabel("archived");
+        setStyle("archived");
         break;
 
-      case 'NOT_STARTED':
-        setLabel('not started');
-        setStyle('not-started');
+      case "CLAIMED":
+        setLabel("claimed");
+        setStyle("claimed");
         break;
 
-      case 'SUBMITTED':
-        setLabel('submitted');
-        setStyle('submitted');
+      case "UNCLAIMED":
+        setLabel("unclaimed");
+        setStyle("unclaimed");
         break;
 
-      case 'CANCELED':
-        type === 'dispute' ? setLabel('canceled') : setLabel('closed');
-        setStyle('declined');
+      case "PROCESSING":
+        setLabel("processing");
+        setStyle("processing");
         break;
 
-      case 'SUCCESS':
-        setLabel('success');
-        setStyle('completed');
+      // Claim statuses
+
+      case "ACCEPTED":
+        setLabel("accepted");
+        setStyle("accepted");
         break;
 
-      case 'IN PROGRESS':
-        setLabel('dispute open');
-        setStyle('awaiting');
+      case "DECLINED":
+        setLabel("declined");
+        setStyle("declined");
         break;
 
-      // title search status
-      case 'ACCEPTED':
-        setLabel('in progress');
-        setStyle('in-progress');
+      case "PENDING":
+        setLabel("pending");
+        setStyle("pending");
         break;
 
-      case 'OPEN':
-        setLabel('open');
-        setStyle('awaiting');
+      case "SUBMITTED":
+        setLabel("submitted");
+        setStyle("submitted");
         break;
 
-      case 'PENDING':
-        setLabel('pending');
-        setStyle('pending-approval');
+      // User roles
+      case "ADMIN":
+        setLabel("admin");
+        setStyle("admin");
         break;
 
-      case 'FAILED':
-        setLabel('failed');
-        setStyle('failed');
-        break;
-
-      case 'COMPLETED':
-        setLabel('completed');
-        setStyle('completed');
-        break;
-
-      case 'REVIEW':
-        setLabel('in review');
-        setStyle('review');
-        break;
-
-      case 'PROCESSING':
-        setLabel('processing');
-        setStyle('processing');
-        break;
-
-      // Representative statuses
-      case 'ACTIVE':
-        setLabel('active');
-        setStyle('active');
-        break;
-
-      case 'INVITE_PENDING':
-        setLabel('invite pending');
-        setStyle('invite-pending');
-        break;
-
-      case 'REVOKED':
-        setLabel('revoked');
-        setStyle('revoked');
+      case "USER":
+        setLabel("user");
+        setStyle("user");
         break;
 
       default:

@@ -1,26 +1,23 @@
-import { useQuery } from '@tanstack/react-query';
+import { useQuery } from "@tanstack/react-query";
 
-import { errorEmitter } from '@/app/utils/eventEmitter';
+import { errorEmitter } from "@/app/utils/eventEmitter";
 
 type Props = {
   apiService: (payload: any) => Promise<any>;
-  pagination?: any;
+  payload: object;
   enabled: boolean;
-  search?: string;
-  status?: string;
   queryKey: string;
 };
 
 export const useGetPaginatedQuery = (props: Props) => {
-  const { apiService, enabled, pagination } = props;
-  const { queryKey, search, status } = props;
+  const { apiService, enabled, payload, queryKey } = props;
 
   const fetchPaginatedData = async () => {
     try {
-      const payload = { ...pagination, search, status };
+      const data = { ...payload };
 
       if (enabled) {
-        return await apiService(payload);
+        return await apiService(data);
       } else {
         return null;
       }
@@ -28,7 +25,7 @@ export const useGetPaginatedQuery = (props: Props) => {
       // Optionally, you can update the cache here if needed
     } catch (error: any) {
       // Listen for error events
-      errorEmitter.emit('error', error);
+      errorEmitter.emit("error", error);
     }
   };
 

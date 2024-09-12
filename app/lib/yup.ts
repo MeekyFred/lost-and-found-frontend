@@ -17,3 +17,15 @@ export const RegisterSchema = Yup.object().shape({
     .matches(strongPasswordRegEx, "Enter a valid password")
     .required("Required"),
 });
+
+export const CreateItemSchema = Yup.object().shape({
+  name: Yup.string().required("Required"),
+  category: Yup.string().required("Required"),
+  description: Yup.string().required("Required"),
+  locationFound: Yup.string().required("Required"),
+  dateFound: Yup.string().required("Required"),
+});
+
+export const UpdateClaimSchema = Yup.object().shape({
+  status: Yup.string().required("Required"),
+});

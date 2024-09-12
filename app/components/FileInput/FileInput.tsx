@@ -75,6 +75,7 @@ const FileInput: FC<Props> = ({ id, name, inputState, setInputState }) => {
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     setUploadView("uploading");
+    setInputState((prev: InputState) => ({ ...prev, uploadView: "uploading" }));
 
     if (!e.target.files) return;
     const file = e.target.files[0];
@@ -100,7 +101,7 @@ const FileInput: FC<Props> = ({ id, name, inputState, setInputState }) => {
       onUploadProgress,
     };
 
-    const res = await axiosInstance.post(`${baseURL}/upload-file`, formData, config); // prettier-ignore
+    const res = await axiosInstance.post(`${baseURL}/uploads/file`, formData, config); // prettier-ignore
 
     if (res) {
       setFile(file);
@@ -113,7 +114,7 @@ const FileInput: FC<Props> = ({ id, name, inputState, setInputState }) => {
         fileName: file.name,
         uploadView: "selected",
         progress: 100,
-        url: res.data.data.url,
+        url: res.data.data.path,
       };
 
       setInputState(updated);
@@ -136,7 +137,7 @@ const FileInput: FC<Props> = ({ id, name, inputState, setInputState }) => {
     () => (
       <div className="file upload app__flex" onClick={handleChooseFile}>
         <Image src={images.uploadIcon} alt="upload" />
-        <p>Click to upload document</p>
+        <p>Click to upload image</p>
       </div>
     ),
     [handleChooseFile]
@@ -161,7 +162,7 @@ const FileInput: FC<Props> = ({ id, name, inputState, setInputState }) => {
   const uploading = useMemo(
     () => (
       <div className="file uploading">
-        <CircularProgress value={fileState.progress} color="#0079ED">
+        <CircularProgress value={fileState.progress} color="#FF8E31">
           <CircularProgressLabel>{`${fileState.progress}%`}</CircularProgressLabel>
         </CircularProgress>
         <p>Uploading file ...</p>
@@ -216,7 +217,7 @@ const FileInput: FC<Props> = ({ id, name, inputState, setInputState }) => {
         type="file"
         name={name}
         id={id}
-        accept=".png,.jpg,.jpeg,.pdf,.docx"
+        accept=".png,.jpg,.jpeg,.gif"
         multiple={false}
         ref={fileInput}
         style={{ display: "none" }}
@@ -224,7 +225,7 @@ const FileInput: FC<Props> = ({ id, name, inputState, setInputState }) => {
       />
 
       {content}
-      <p className="file__info">PDF, JPG, PNG, and DOCX, File size: 10MB</p>
+      <p className="file__info">JPG, JPEG, PNG, and GIF, File size: ~5MB</p>
     </div>
   );
 };

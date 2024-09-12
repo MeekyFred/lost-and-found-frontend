@@ -17,7 +17,7 @@ const useHandleLogout = () => {
     resetAuth();
     resetPage();
     resetPagination();
-    router.push("/user/login");
+    router.push("/");
   };
 
   function clearCookies() {

@@ -1,0 +1,37 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__page-items-card {
+    @apply rounded-lg lg:hover:scale-105 transition-transform duration-300 ease-in-out;
+
+    &-body {
+      @apply w-full;
+
+      img.card__img {
+        @apply w-[250px] h-[250px] lg:w-[400px] lg:h-[300px] object-cover object-center rounded-lg;
+      }
+
+      .card__info {
+        @apply w-full;
+
+        p.card__name {
+          @apply text-lg font-semibold text-[#2E2E2E];
+        }
+
+        p.card__category {
+          @apply text-sm font-normal text-[#2E2E2E];
+
+          span {
+            @apply text-[#B1BBCD] capitalize;
+          }
+        }
+
+        p.card__description {
+          @apply text-sm font-normal text-[#B1BBCD];
+        }
+      }
+    }
+  }
+}

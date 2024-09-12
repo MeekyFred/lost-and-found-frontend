@@ -15,6 +15,7 @@ export { default as AdminLogin } from "@/app/containers/Login/AdminLogin";
 export { default as Claims } from "@/app/containers/Claims/Claims";
 export { default as Inventory } from "@/app/containers/Inventory/Inventory";
 export { default as Items } from "@/app/containers/Items/Items";
+export { default as ItemDetail } from "@/app/containers/Items/ItemDetail";
 export { default as Login } from "@/app/containers/Login/Login";
 export { default as Main } from "@/app/containers/Main/Main";
 export { default as Register } from "@/app/containers/Register/Register";

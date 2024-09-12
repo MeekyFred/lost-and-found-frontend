@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Spinner } from '@chakra-ui/react';
+import React from "react";
+import { Spinner } from "@chakra-ui/react";
 
-import './Fallback.scss';
+import "./Fallback.scss";
 
 type Props = {};
 
@@ -14,9 +14,9 @@ const Fallback: React.FC<Props> = ({}) => {
         thickness="4px"
         speed="0.45s"
         emptyColor="#A5B0BA"
-        color="#0079ED"
+        color="primary.500"
         size="md"
-        padding={8}
+        padding={6}
       />
     </div>
   );

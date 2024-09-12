@@ -1,16 +1,16 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer components {
   div.app__user-layout {
-    @apply w-full min-h-screen bg-[#FFF] flex items-center justify-between;
+    @apply w-full min-h-screen bg-[#FBFBFD] flex items-center justify-between;
 
     div.main__section {
-      @apply lg:w-[calc(100vw_-_260px)] w-full lg:max-w-[calc(100vw_-_260px)] lg:ml-[260px] bg-transparent h-screen relative;
+      @apply w-full bg-[#FBFBFD];
 
       main {
-        @apply w-full min-h-screen bg-[#FBFBFD] px-5 lg:px-10 py-4;
+        @apply w-full px-5 lg:px-10 py-8 h-screen;
       }
     }
   }

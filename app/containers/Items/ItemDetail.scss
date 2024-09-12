@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .app__items-details {
+    @apply w-full min-h-[90vh] py-8 bg-transparent;
+
+    &-controls {
+      @apply w-full flex items-center justify-between mb-20;
+    }
+
+    &-body {
+      @apply w-full flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-0;
+
+      img {
+        @apply w-full lg:max-w-[50%] object-cover object-center rounded-lg;
+      }
+
+      .info {
+        @apply w-full lg:w-[40%] text-pretty;
+
+        .label {
+          @apply text-sm lg:text-base text-[#718096] font-normal;
+        }
+
+        .value {
+          @apply text-sm lg:text-base text-[#1A202C] font-medium;
+        }
+      }
+    }
+  }
+}

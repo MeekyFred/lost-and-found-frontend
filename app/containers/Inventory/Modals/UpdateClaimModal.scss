@@ -1,0 +1,50 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__modal__header {
+    @apply w-full;
+
+    p.subtext {
+      @apply text-sm text-[#A0AEC0];
+    }
+  }
+
+  .update__claim__modal__body {
+    @apply w-full;
+
+    form {
+      @apply w-full m-0;
+
+      .form-info {
+        @apply flex items-center justify-start gap-2 w-full;
+
+        label {
+          @apply text-base font-normal;
+
+          span {
+            @apply text-[#A0AEC0] text-sm;
+          }
+        }
+
+        div,
+        p {
+          @apply font-medium text-xs text-red-500;
+        }
+      }
+
+      .formik-field {
+        @apply w-full outline-none border-2 rounded bg-transparent text-sm text-gray-900 p-3 focus:border-primary;
+
+        &::placehoder {
+          @apply text-[#C8C1D1] text-sm;
+        }
+      }
+    }
+
+    button {
+      @apply lg:first:w-[172px] lg:last:w-[132px];
+    }
+  }
+}

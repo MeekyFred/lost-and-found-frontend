@@ -1,0 +1,50 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__tab-claims {
+    @apply w-full;
+
+    .rdt_TableHeadRow .rdt_TableCol:nth-child(1),
+    .rdt_TableRow .rdt_TableCell:nth-child(1) {
+      @apply w-[25px] min-w-[25px];
+    }
+
+    &-controls {
+      @apply w-full flex items-center justify-end lg:justify-between mb-4;
+
+      .search {
+        @apply w-fit hidden lg:flex;
+
+        input {
+          @apply focus-visible:border-primary shadow-primary;
+        }
+      }
+
+      .filters {
+        @apply text-sm font-normal w-fit flex items-center justify-end gap-2;
+
+        .menu__btn {
+          @apply text-[#2E2E2E] text-sm font-normal;
+
+          svg {
+            @apply text-[#B1BBCD];
+          }
+        }
+      }
+    }
+
+    &-body {
+      @apply w-full mb-14 lg:mb-0;
+
+      .big__table {
+        @apply w-full hidden lg:block;
+      }
+
+      .small__table {
+        @apply w-full lg:hidden;
+      }
+    }
+  }
+}

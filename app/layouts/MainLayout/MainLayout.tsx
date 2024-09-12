@@ -18,7 +18,7 @@ const MainLayout: React.FC<Props> = ({ children }) => {
       {pathname === "/" && (
         <>
           <div className={`app__main-layout-image`}>
-            <Image src={images.locationSearch} alt="location-search" />
+            <Image src={images.locationSearch} alt="location-search" priority />
           </div>
           <main className="children">{children}</main>
         </>

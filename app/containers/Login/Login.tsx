@@ -2,19 +2,19 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Formik, Form, Field } from "formik";
-import { Button, VStack } from "@chakra-ui/react";
+import { Button, IconButton, VStack } from "@chakra-ui/react";
 import { IoMailOutline } from "react-icons/io5";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { FaHome } from "react-icons/fa";
 import { setCookie } from "cookies-next";
 
 import { images } from "@/app/constants";
 import { LoginSchema } from "@/app/lib/yup";
 import usePostQuery from "@/app/queries/usePostQuery";
 import { userLogin as userLoginAPI } from "@/app/services/auth.service";
-import { AuthRoles, LoginType, User } from "@/app/types/auth";
+import { LoginType, User } from "@/app/types/auth";
 import { updateToken } from "@/app/utils/axios";
 import { decodeJWT } from "@/app/utils/utils";
 import { useStore } from "@/app/zustand/store/useStore";
@@ -59,13 +59,13 @@ function Login() {
     const payload = decodeToken(token);
 
     const userData: User = {
-      id: payload?.id, 
-      firstName: payload?.firstName, 
+      id: payload?.id,
+      firstName: payload?.firstName,
       lastName: payload?.lastName,
       email: payload?.email,
-      phoneNumber: payload?.phoneNumber, 
-      role: AuthRoles.USER
-     };
+      phoneNumber: payload?.phoneNumber,
+      role: payload?.role,
+    };
 
     setUser(userData);
     setIsLoggedIn(true);
@@ -106,11 +106,22 @@ function Login() {
     }
   }
 
+  const handleGoHome = () => push("/");
+
   return (
     <div className="app__login">
       <Image src={images.logo128} alt="sidebar-logo" className="logo" />
 
       <div className="app__auth-layout-account-prompt desktop">
+        <IconButton
+          aria-label="home"
+          colorScheme="primary"
+          variant="ghost"
+          size="lg"
+          icon={<FaHome />}
+          onClick={handleGoHome}
+        />
+
         <p>I don’t have an account?</p>
 
         <Button
@@ -215,6 +226,15 @@ function Login() {
       </Formik>
 
       <div className="app__auth-layout-account-prompt mobile">
+        <IconButton
+          aria-label="home"
+          colorScheme="primary"
+          variant="ghost"
+          size="lg"
+          icon={<FaHome />}
+          onClick={handleGoHome}
+        />
+
         <p>I don’t have an account?</p>
 
         <Button

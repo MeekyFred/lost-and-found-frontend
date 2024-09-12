@@ -1,13 +1,17 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer components {
   .app__header {
     @apply sticky top-0 z-50 w-full max-w-full min-h-[72px] max-h-[72px] bg-[#FFF] flex items-center justify-between px-6 lg:px-10 border-b border-[#EDEFF5];
 
     &-left {
-      @apply w-fit;
+      @apply w-fit flex items-center justify-start gap-3;
+
+      img {
+        @apply w-[20%];
+      }
 
       p.title {
         @apply font-medium text-lg;
@@ -16,6 +20,14 @@
 
     &-right {
       @apply w-fit flex items-center justify-end gap-2;
+
+      .actions {
+        @apply flex items-center justify-end gap-2;
+
+        .logout-button {
+          @apply hidden lg:flex;
+        }
+      }
 
       .icon-button {
         @apply text-primary fill-primary lg:hidden;
@@ -34,6 +46,10 @@
 
         &-logo {
           @apply w-full flex items-center justify-between;
+
+          img {
+            @apply w-[10%];
+          }
 
           svg {
             @apply text-error fill-error my-2 mx-4 w-[35%];
