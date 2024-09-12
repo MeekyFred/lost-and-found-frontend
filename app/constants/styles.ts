@@ -10,7 +10,7 @@ export const customStyles = {
       minHeight: '72px', // override the row height
       cursor: 'pointer',
       '&:hover': {
-        backgroundColor: 'hsl(var(--accent))',
+        backgroundColor: 'hsl(var(--warning))',
       },
     },
   },

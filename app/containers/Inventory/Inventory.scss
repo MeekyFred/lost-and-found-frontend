@@ -1,0 +1,21 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__page-inventory {
+    @apply w-full;
+
+    p.intro {
+      @apply font-semibold text-lg text-[#2E2E2E] mb-8;
+    }
+
+    &-cards {
+      @apply w-full flex flex-col lg:flex-row items-center justify-start lg:justify-between gap-4 mb-4;
+    }
+
+    &-tabs {
+      @apply w-full max-w-full bg-white rounded-2xl py-8 px-8 min-h-[30vh] lg:min-h-[30vh] shadow-sm;
+    }
+  }
+}

@@ -26,7 +26,7 @@ const Main: React.FC = () => {
             onClick={handleRoute.bind(this, "admin")}
           >
             <h2>Admin</h2>
-            <p>Manage all the lost and found items</p>
+            <p>Manage all items and claims</p>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.1 }}
@@ -35,7 +35,7 @@ const Main: React.FC = () => {
             onClick={handleRoute.bind(this, "user")}
           >
             <h2>User</h2>
-            <p>Report lost and found items</p>
+            <p>Claim your lost item</p>
           </motion.div>
         </div>
       </div>

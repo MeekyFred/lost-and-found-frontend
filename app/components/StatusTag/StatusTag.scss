@@ -6,56 +6,30 @@
   @apply text-xs px-2 py-0;
 }
 
-.not-started,
-.pending {
+.admin {
   @apply bg-[#F2994A] text-[#F2994A] bg-opacity-10;
 }
 
-.approved {
+.user {
+  @apply bg-[#4E4D4B] text-[#4E4D4B] bg-opacity-10;
+}
+
+.claimed,
+.accepted {
   @apply bg-[#15A336] text-[#15A336] bg-opacity-10;
 }
 
-.failed,
-.rejected {
+.archived,
+.declined {
   @apply bg-[#EB0000] text-[#EB0000] bg-opacity-10;
 }
 
-.review,
+.unclaimed,
 .submitted {
   @apply bg-[#0083FF] text-[#0083FF] bg-opacity-10;
 }
 
-.update-required,
-.review {
-  @apply bg-[#9B51E0] text-[#9B51E0] bg-opacity-10;
-}
-
-.awaiting,
 .processing,
-.invite-pending {
-  @apply bg-[#FF9900] text-[#FF9900] bg-opacity-10;
-}
-
-.pending,
-.pending-approval {
+.pending {
   @apply bg-[#9B51E0] text-[#9B51E0] bg-opacity-10;
-}
-
-.in-progress {
-  @apply bg-[#0083FF] text-[#0083FF] bg-opacity-10;
-}
-
-.completed,
-.active {
-  @apply bg-[#15A336] text-[#15A336] bg-opacity-10;
-}
-
-.declined,
-.revoked {
-  @apply bg-[#EB0000] text-[#EB0000] bg-opacity-10;
-}
-
-.under-dispute,
-.refunded {
-  @apply bg-[#4E4D4B] text-[#4E4D4B] bg-opacity-10;
 }

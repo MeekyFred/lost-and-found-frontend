@@ -7,10 +7,12 @@ import { Avatar, IconButton } from "@chakra-ui/react";
 import { HStack, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
+import { MdLogout } from "react-icons/md";
 
 import { images } from "@/app/constants";
 import { ACTION_LINKS, SIDEBAR_LINKS } from "@/app/helpers/siderbar";
 import useHandleLogout from "@/app/hooks/useHandleLogout";
+import { AuthRoles } from "@/app/types/auth";
 import { useStore } from "@/app/zustand/store/useStore";
 
 import "./Header.scss";
@@ -54,11 +56,26 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <header className="app__header">
       <div className="app__header-left">
+        {role === AuthRoles.USER && (
+          <Image src={images.logo128} alt="sidebar-logo" />
+        )}
         <p className="title">{title}</p>
       </div>
 
       <div className="app__header-right">
-        <Avatar name={name} className="app-avatar" />
+        <div className="actions">
+          <Avatar name={name} className="app-avatar" />
+
+          {role === AuthRoles.USER && (
+            <IconButton
+              aria-label="logout"
+              variant="ghost"
+              icon={<MdLogout />}
+              onClick={handleLogout}
+              className="logout-button"
+            />
+          )}
+        </div>
 
         <div className="app__header-menu">
           <IconButton

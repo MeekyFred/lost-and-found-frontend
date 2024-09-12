@@ -4,54 +4,81 @@
 
 @layer components {
   .app__page-items {
-    @apply w-full;
+    @apply w-full bg-[#FBFBFD] pt-8;
 
-    p.intro {
-      @apply font-semibold text-lg text-[#2E2E2E] mb-8;
-    }
+    &-controls {
+      @apply w-full h-full flex flex-col lg:flex-row items-end lg:items-center justify-end mb-6 gap-3;
 
-    &-cards {
-      @apply w-full flex flex-col lg:flex-row items-center justify-start lg:justify-between gap-4 mb-4;
-    }
+      .search {
+        @apply w-fit;
 
-    &-table {
-      @apply w-full max-w-full bg-white rounded-2xl py-8 px-8 min-h-[30vh] lg:min-h-[30vh] shadow-sm;
+        input {
+          @apply focus-visible:border-primary shadow-primary;
+        }
+      }
 
-      &-controls {
-        @apply w-full flex items-center justify-end lg:justify-between mb-4;
+      .filters {
+        @apply w-fit;
 
-        .search {
-          @apply w-fit hidden lg:flex;
+        .menu__btn {
+          @apply text-sm font-normal text-[#2E2E2E];
 
-          input {
-            @apply focus-visible:border-primary shadow-primary;
+          svg {
+            @apply text-[#B1BBCD];
           }
         }
+      }
 
-        .filters {
-          @apply w-fit;
+      .date-picker {
+        @apply cursor-pointer transition duration-200 ease-in flex items-center justify-between gap-1 px-3 rounded-md outline-none border border-gray-100 focus-within:border-primary min-h-[44px] min-w-[250px];
 
-          .menu__btn {
-            @apply text-sm font-normal text-[#2E2E2E];
+        .date {
+          @apply text-sm;
+        }
 
-            svg {
-              @apply text-[#B1BBCD];
+        .arrow,
+        .calendar {
+          @apply text-sm text-[#6C727F];
+        }
+
+        .react-datepicker-wrapper {
+          @apply h-full w-full;
+
+          .react-datepicker__input-container {
+            @apply h-full;
+
+            input {
+              @apply h-full py-3 pl-3 w-full text-xs outline-none border-none;
+
+              &::placeholder {
+                @apply text-sm;
+              }
             }
           }
         }
-      }
 
-      &-body {
-        @apply w-full mb-14 lg:mb-0;
-
-        .big__table {
-          @apply w-full hidden lg:block;
+        .react-datepicker__navigation {
+          @apply w-full flex items-center justify-between mt-0;
         }
 
-        .small__table {
-          @apply w-full lg:hidden;
+        .react-datepicker__navigation--previous,
+        .react-datepicker__navigation--next {
+          @apply hidden;
+        }
+
+        .react-datepicker__current-month,
+        .react-datepicker__header__dropdown {
+          @apply cursor-default;
+
+          select {
+            @apply cursor-pointer;
+          }
         }
       }
+    }
+
+    &-cards {
+      @apply w-full flex flex-wrap items-center justify-center gap-8 lg:gap-20 mb-4;
     }
   }
 }

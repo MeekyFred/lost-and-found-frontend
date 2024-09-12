@@ -1,0 +1,102 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__admin-login {
+    @apply pb-[65px] px-14;
+
+    .logo {
+      @apply pt-[37px] pb-[21px] mx-auto lg:hidden block;
+    }
+  }
+
+  .app__auth-layout-account-prompt {
+    @apply pt-[80px] pb-[90px] flex items-center gap-x-[35px];
+
+    &.mobile {
+      @apply lg:hidden flex pb-0 pt-10 gap-y-6 flex-col;
+
+      button {
+        @apply w-full;
+      }
+    }
+
+    &.desktop {
+      @apply lg:flex hidden;
+    }
+
+    p {
+      @apply text-[#4F4F4F] text-sm leading-6 font-normal;
+    }
+
+    button {
+      @apply text-sm;
+    }
+  }
+
+  .auth-layout-header {
+    @apply lg:text-4xl text-[#010318] font-bold lg:text-left text-center text-xl;
+  }
+
+  .auth-layout-subheader {
+    @apply text-base font-normal mt-2 lg:text-left text-center text-[#828282] lg:max-w-[unset] lg:mx-0 mx-auto max-w-[400px];
+
+    span {
+      @apply text-[#212737];
+    }
+  }
+
+  form {
+    @apply w-full mt-[45px];
+
+    .form-info {
+      @apply w-full flex items-baseline justify-start gap-2 mb-1;
+
+      label {
+        @apply w-fit text-base font-normal;
+
+        span {
+          @apply text-[#718096] font-light;
+        }
+      }
+
+      div {
+        @apply w-fit font-medium text-xs text-error;
+      }
+    }
+
+    .input-group {
+      @apply relative w-full flex items-center justify-between;
+
+      input {
+        @apply w-full outline-none border rounded bg-transparent text-sm text-gray-900 lg:mb-4 p-3;
+
+        &::placehoder {
+          @apply text-[#C8C1D1] text-sm;
+        }
+      }
+
+      svg {
+        @apply absolute right-4 top-4 cursor-pointer text-base;
+      }
+    }
+
+    .bottom-section {
+      @apply w-full flex items-center justify-end transition-all ease-in;
+
+      p,
+      a {
+        @apply text-primary text-sm cursor-pointer;
+      }
+    }
+
+    button {
+      @apply mt-3;
+
+      svg {
+        @apply w-fit;
+      }
+    }
+  }
+}

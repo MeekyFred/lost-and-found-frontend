@@ -52,13 +52,22 @@
       @apply h-full;
 
       input {
-        @apply h-full py-3 pl-3 w-full text-xs;
+        @apply h-full py-3 pl-3 w-full text-xs outline-none border-none;
 
         &::placeholder {
           @apply text-sm;
         }
       }
     }
+  }
+
+  .react-datepicker__navigation {
+    @apply w-full flex items-center justify-between mt-0;
+  }
+
+  .react-datepicker__navigation--previous,
+  .react-datepicker__navigation--next {
+    @apply hidden;
   }
 
   .react-datepicker__current-month,
@@ -75,36 +84,36 @@
   }
 }
 
-// @layer utilities {
-//   /* Define custom scrollbar styles */
-//   .scrollbar::-webkit-scrollbar,
-//   .scrollbar-thin::-webkit-scrollbar,
-//   .chakra-modal__body::-webkit-scrollbar,
-//   body::-webkit-scrollbar {
-//     @apply w-1;
-//   }
+@layer utilities {
+  /* Define custom scrollbar styles */
+  .scrollbar::-webkit-scrollbar,
+  .scrollbar-thin::-webkit-scrollbar,
+  .chakra-modal__body::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    @apply w-1;
+  }
 
-//   /* Track */
-//   .scrollbar::-webkit-scrollbar-track,
-//   .scrollbar-thin::-webkit-scrollbar-track,
-//   .chakra-modal__body::-webkit-scrollbar-track,
-//   body::-webkit-scrollbar-track {
-//     @apply bg-[#A0AEC0];
-//   }
+  /* Track */
+  .scrollbar::-webkit-scrollbar-track,
+  .scrollbar-thin::-webkit-scrollbar-track,
+  .chakra-modal__body::-webkit-scrollbar-track,
+  body::-webkit-scrollbar-track {
+    @apply bg-[#A0AEC0];
+  }
 
-//   /* Handle */
-//   .scrollbar::-webkit-scrollbar-thumb,
-//   .scrollbar-thin::-webkit-scrollbar-thumb,
-//   .chakra-modal__body::-webkit-scrollbar-thumb,
-//   body::-webkit-scrollbar-thumb {
-//     @apply bg-primary rounded-lg;
-//   }
+  /* Handle */
+  .scrollbar::-webkit-scrollbar-thumb,
+  .scrollbar-thin::-webkit-scrollbar-thumb,
+  .chakra-modal__body::-webkit-scrollbar-thumb,
+  body::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-lg;
+  }
 
-//   /* Handle on hover */
-//   .scrollbar::-webkit-scrollbar-thumb:hover,
-//   .scrollbar-thin::-webkit-scrollbar-thumb:hover,
-//   .chakra-modal__body::-webkit-scrollbar-thumb:hover,
-//   body::-webkit-scrollbar-thumb:hover {
-//     @apply bg-blue-700 transition duration-200 ease-in;
-//   }
-// }
+  /* Handle on hover */
+  .scrollbar::-webkit-scrollbar-thumb:hover,
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover,
+  .chakra-modal__body::-webkit-scrollbar-thumb:hover,
+  body::-webkit-scrollbar-thumb:hover {
+    @apply bg-orange-700 transition duration-200 ease-in;
+  }
+}
