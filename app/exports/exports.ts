@@ -21,6 +21,7 @@ export { default as Main } from "@/app/containers/Main/Main";
 export { default as Register } from "@/app/containers/Register/Register";
 export { default as Settings } from "@/app/containers/Settings/Settings";
 export { default as Users } from "@/app/containers/Users/Users";
+export { default as VerifyEmail } from "@/app/containers/VerifyEmail/VerifyEmail";
 
 export { default as AuthLayout } from "@/app/layouts/AuthLayout/AuthLayout";
 export { default as AdminLayout } from "@/app/layouts/AdminLayout/AdminLayout";

@@ -45,7 +45,10 @@ function Register() {
       const response = await register(payload);
 
       if (response?.id) {
-        showToast("Account created successfully", "success");
+        showToast(
+          "Account created successfully, please verify your email.",
+          "success"
+        );
         return true;
       } else {
         showToast("An error occurred. Please try again", "error");

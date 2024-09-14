@@ -1,0 +1,25 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer components {
+  .app__verify-email {
+    @apply w-full h-screen flex items-center justify-center;
+
+    .verify-email-wrapper {
+      @apply flex flex-col items-center justify-center w-full max-w-[80%] mx-auto;
+
+      .image-illustration {
+        @apply w-[76px] h-[76px] lg:-ml-2 mb-4 lg:mx-0 mx-auto;
+      }
+
+      .button-wrapper {
+        @apply mt-14;
+
+        button {
+          @apply text-sm lg:w-[233px] w-full;
+        }
+      }
+    }
+  }
+}

@@ -296,36 +296,38 @@ const CreateItemModal: FC<Props> = (props) => {
                       </Field>
                     </VStack>
 
-                    <VStack spacing={1} width="full" mb={3}>
-                      <label htmlFor="status" className="form-info">
-                        Status
-                      </label>
-                      <Field>
-                        {({ field, form }: FieldProps) => (
-                          <RadioGroup
-                            aria-label="Status"
-                            id="status"
-                            name="status"
-                            colorScheme="primary"
-                            onChange={(e) => form.setFieldValue("status", e)}
-                            defaultValue={item?.status ?? ItemStatus.UNCLAIMED} // prettier-ignore
-                            width="full"
-                          >
-                            <Stack spacing={5} direction="row">
-                              {STATUS.map((status, index) => (
-                                <Radio
-                                  key={index}
-                                  value={status.value}
-                                  defaultChecked={index === 0}
-                                >
-                                  {status.name}
-                                </Radio>
-                              ))}
-                            </Stack>
-                          </RadioGroup>
-                        )}
-                      </Field>
-                    </VStack>
+                    {type === "edit" && (
+                      <VStack spacing={1} width="full" mb={3}>
+                        <label htmlFor="status" className="form-info">
+                          Status
+                        </label>
+                        <Field>
+                          {({ form }: FieldProps) => (
+                            <RadioGroup
+                              aria-label="Status"
+                              id="status"
+                              name="status"
+                              colorScheme="primary"
+                              onChange={(e) => form.setFieldValue("status", e)}
+                              defaultValue={item?.status ?? ItemStatus.UNCLAIMED} // prettier-ignore
+                              width="full"
+                            >
+                              <Stack spacing={5} direction="row">
+                                {STATUS.map((status, index) => (
+                                  <Radio
+                                    key={index}
+                                    value={status.value}
+                                    defaultChecked={index === 0}
+                                  >
+                                    {status.name}
+                                  </Radio>
+                                ))}
+                              </Stack>
+                            </RadioGroup>
+                          )}
+                        </Field>
+                      </VStack>
+                    )}
 
                     <Field>
                       {({ form }: FieldProps) => (
