@@ -15,6 +15,7 @@ import placeholder from "@/app/assets/placeholder.svg";
 import settingsActiveIcon from "@/app/assets/settings-active-icon.svg";
 import settingsIcon from "@/app/assets/settings-icon.svg";
 import signup from "@/app/assets/sign-up.svg";
+import successBlueTickIcon from "@/app/assets/success-blue-tick-icon.svg";
 import twoFactorAuth from "@/app/assets/two-factor-auth.svg";
 import uploadIcon from "@/app/assets/upload-icon.svg";
 import usersActiveIcon from "@/app/assets/users-active-icon.svg";
@@ -36,6 +37,7 @@ interface Images {
   settingsActiveIcon: StaticImageData;
   settingsIcon: StaticImageData;
   signup: StaticImageData;
+  successBlueTickIcon: StaticImageData;
   twoFactorAuth: StaticImageData;
   uploadIcon: StaticImageData;
   usersActiveIcon: StaticImageData;
@@ -58,6 +60,7 @@ export const Images: Images = {
   settingsActiveIcon,
   settingsIcon,
   signup,
+  successBlueTickIcon,
   twoFactorAuth,
   uploadIcon,
   usersActiveIcon,

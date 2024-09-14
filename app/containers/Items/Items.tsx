@@ -23,6 +23,7 @@ import { ItemCategory, ItemObject } from "@/app/types/items";
 import { useStore } from "@/app/zustand/store/useStore";
 
 import ClaimModal from "./ClaimModal";
+import CreateItemModal from "../Inventory/Modals/CreateItemModal";
 import ItemCard from "./ItemCard";
 
 import "./Items.scss";
@@ -36,6 +37,7 @@ const Items: React.FC = () => {
   const [search, setSearch] = useState<string>("");
   const [dateRange, setDateRange] = useState<Range>([null, null]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [reportIsOpen, setReportIsOpen] = useState<boolean>(false);
 
   const { showToast } = useGlobalToast();
   const { push } = useRouter();
@@ -128,6 +130,8 @@ const Items: React.FC = () => {
   }, [pagination]); // eslint-disable-line
 
   const handleClose = () => setIsOpen(false);
+  const handleReportClose = () => setReportIsOpen(false);
+  const handleReportOpen = () => setReportIsOpen(true);
 
   return (
     <div className="app__page-items">
@@ -140,7 +144,22 @@ const Items: React.FC = () => {
         />
       )}
 
+      <CreateItemModal
+        isOpen={reportIsOpen}
+        type="create"
+        refreshPage={refetchItems}
+        handleClose={handleReportClose}
+      />
+
       <div className="app__page-items-controls">
+        <Button
+          variant="outline"
+          colorScheme="primary"
+          onClick={handleReportOpen}
+        >
+          Report an item
+        </Button>
+
         <div className="search">
           <InputGroup>
             <InputLeftElement pointerEvents="none">
