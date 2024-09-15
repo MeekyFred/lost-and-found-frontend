@@ -33,7 +33,7 @@ export const CLAIMS_TABLE_LG: TColumn[] = [
     compact: true,
   },
   {
-    name: <span className="text-sm font-normal text-[#353945]">Author</span>,
+    name: <span className="text-sm font-normal text-[#353945]">CLAIMANT</span>,
     selector: (row) => (
       <p className="text-base" onClick={row.handleView.bind(this, row)}>
         {`${row.author.firstName} ${row.author.lastName}`}
