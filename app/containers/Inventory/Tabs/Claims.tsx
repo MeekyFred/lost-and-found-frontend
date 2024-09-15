@@ -140,7 +140,7 @@ const Claims: React.FC = () => {
             </InputLeftElement>
             <Input
               type="text"
-              placeholder="Enter name of author"
+              placeholder="Enter name of claimant"
               value={search}
               onChange={handleChange}
             />
