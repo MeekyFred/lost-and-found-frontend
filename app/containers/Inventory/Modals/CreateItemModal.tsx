@@ -6,8 +6,9 @@ import { Field, FieldProps, Form, Formik } from "formik";
 import { Modal, ModalOverlay, ModalContent } from "@chakra-ui/react";
 import { ModalHeader, ModalBody } from "@chakra-ui/react";
 import { Box, Button, ButtonGroup, Switch } from "@chakra-ui/react";
-import { Select, useBreakpointValue, VStack } from "@chakra-ui/react";
-import { Radio, RadioGroup, Stack } from "@chakra-ui/react";
+import { Select, useBreakpointValue } from "@chakra-ui/react";
+import { HStack, Stack, VStack } from "@chakra-ui/react";
+import { Radio, RadioGroup } from "@chakra-ui/react";
 import { AiOutlineClose } from "react-icons/ai";
 import { BiCalendar } from "react-icons/bi";
 import DatePicker from "react-datepicker";
@@ -267,8 +268,8 @@ const CreateItemModal: FC<Props> = (props) => {
                       <Box className="form-info">
                         <label htmlFor="dateFound">{`${
                           user?.role === AuthRoles.USER
-                            ? "Date submitted"
-                            : "When will you be submitting it to the L&F office?"
+                            ? "When will you be submitting it to the L&F office?"
+                            : "Date submitted"
                         }`}</label>
                         <div>
                           {errors.dateFound && touched.dateFound
@@ -350,17 +351,23 @@ const CreateItemModal: FC<Props> = (props) => {
                     </Field>
 
                     {user?.role === AuthRoles.USER && (
-                      <Field>
-                        {({ field }: FieldProps) => (
-                          <Switch
-                            id="inPossession"
-                            name="inPossession"
-                            colorScheme="primary"
-                            checked={values.inPossession}
-                            onChange={field.onChange}
-                          />
-                        )}
-                      </Field>
+                      <HStack width="full" justify="space-between">
+                        <label htmlFor="status" className="form-info">
+                          Is the item currently in your possession?
+                        </label>
+
+                        <Field>
+                          {({ field }: FieldProps) => (
+                            <Switch
+                              id="inPossession"
+                              name="inPossession"
+                              colorScheme="primary"
+                              checked={values.inPossession}
+                              onChange={field.onChange}
+                            />
+                          )}
+                        </Field>
+                      </HStack>
                     )}
 
                     <ButtonGroup marginTop={2} marginBottom={6} width="full">
