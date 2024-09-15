@@ -55,4 +55,5 @@ export interface CreateItemFormikData {
   status: ItemStatus;
   locationFound: string;
   dateFound: Date | null;
+  inPossession: boolean;
 }

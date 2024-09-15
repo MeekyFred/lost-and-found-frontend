@@ -5,7 +5,7 @@ import type { Dispatch, FC, SetStateAction } from "react";
 import { Field, FieldProps, Form, Formik } from "formik";
 import { Modal, ModalOverlay, ModalContent } from "@chakra-ui/react";
 import { ModalHeader, ModalBody } from "@chakra-ui/react";
-import { Box, Button, ButtonGroup, Center } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Switch } from "@chakra-ui/react";
 import { Select, useBreakpointValue, VStack } from "@chakra-ui/react";
 import { Radio, RadioGroup, Stack } from "@chakra-ui/react";
 import { AiOutlineClose } from "react-icons/ai";
@@ -20,8 +20,10 @@ import usePostQuery from "@/app/queries/usePostQuery";
 import { CreateItemSchema } from "@/app/lib/yup";
 import { createItem as createItemAPI } from "@/app/services/admin.service";
 import { updateItem as updateItemAPI } from "@/app/services/admin.service";
-import { CreateItemFormikData, ItemObject, ItemStatus } from "@/app/types/items"; // prettier-ignore
+import { AuthRoles } from "@/app/types/auth";
 import { InputState, initialState } from "@/app/types/file-input";
+import { CreateItemFormikData, ItemObject, ItemStatus } from "@/app/types/items"; // prettier-ignore
+import { useStore } from "@/app/zustand/store/useStore";
 
 import "./CreateItemModal.scss";
 
@@ -51,6 +53,7 @@ const CreateItemModal: FC<Props> = (props) => {
   }, [item, type]);
 
   const { showToast } = useGlobalToast();
+  const { user } = useStore();
 
   const InitialValues: CreateItemFormikData = {
     name: type === "edit" ? item?.name! : "",
@@ -60,6 +63,7 @@ const CreateItemModal: FC<Props> = (props) => {
     status: type === "edit" ? item?.status! : ItemStatus.UNCLAIMED,
     locationFound: type === "edit" ? item?.locationFound! : "",
     dateFound: type === "edit" ? new Date(item?.dateFound!) : null,
+    inPossession: false,
   };
 
   const { mutateAsync: createItem } = usePostQuery({
@@ -154,6 +158,7 @@ const CreateItemModal: FC<Props> = (props) => {
                 status: values.status,
                 locationFound: values.locationFound,
                 dateFound: values.dateFound,
+                inPossession: values.inPossession,
               };
 
               const res = await handleSubmit(updatedValues);
@@ -260,7 +265,11 @@ const CreateItemModal: FC<Props> = (props) => {
 
                     <VStack width="full">
                       <Box className="form-info">
-                        <label htmlFor="start_date">Date found</label>
+                        <label htmlFor="dateFound">{`${
+                          user?.role === AuthRoles.USER
+                            ? "Date submitted"
+                            : "When will you be submitting it to the L&F office?"
+                        }`}</label>
                         <div>
                           {errors.dateFound && touched.dateFound
                             ? errors.dateFound
@@ -339,6 +348,20 @@ const CreateItemModal: FC<Props> = (props) => {
                         />
                       )}
                     </Field>
+
+                    {user?.role === AuthRoles.USER && (
+                      <Field>
+                        {({ field }: FieldProps) => (
+                          <Switch
+                            id="inPossession"
+                            name="inPossession"
+                            colorScheme="primary"
+                            checked={values.inPossession}
+                            onChange={field.onChange}
+                          />
+                        )}
+                      </Field>
+                    )}
 
                     <ButtonGroup marginTop={2} marginBottom={6} width="full">
                       <Button

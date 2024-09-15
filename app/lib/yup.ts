@@ -24,6 +24,7 @@ export const CreateItemSchema = Yup.object().shape({
   description: Yup.string().required("Required"),
   locationFound: Yup.string().required("Required"),
   dateFound: Yup.string().required("Required"),
+  inPossession: Yup.boolean(),
 });
 
 export const UpdateClaimSchema = Yup.object().shape({
