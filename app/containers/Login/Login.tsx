@@ -204,10 +204,6 @@ function Login() {
                   )}
                 </div>
 
-                {/* <div className="bottom-section">
-                  <Link href="/forgot-password">Forgot password?</Link>
-                </div> */}
-
                 <Button
                   type="submit"
                   colorScheme="primary"
