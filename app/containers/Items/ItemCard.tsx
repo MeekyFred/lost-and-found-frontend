@@ -29,12 +29,23 @@ const ItemCard: React.FC<Props> = (props) => {
         <Stack mt="6" spacing="2" className="card__info">
           <p className="card__name">
             {props.item.name}{" "}
-            {props.item.status === ItemStatus.UNCLAIMED ? (
+            {props.item.status === ItemStatus.UNCLAIMED && (
               <Badge ml="1" colorScheme="info">
-                Unclaimed
+                {props.item.status}
               </Badge>
-            ) : (
+            )}
+            {props.item.status === ItemStatus.PROCESSING && (
               <Badge ml="1" colorScheme="warning">
+                {props.item.status}
+              </Badge>
+            )}
+            {props.item.status === ItemStatus.CLAIMED && (
+              <Badge ml="1" colorScheme="success">
+                {props.item.status}
+              </Badge>
+            )}
+            {props.item.status === ItemStatus.ARCHIVED && (
+              <Badge ml="1" colorScheme="error">
                 {props.item.status}
               </Badge>
             )}
