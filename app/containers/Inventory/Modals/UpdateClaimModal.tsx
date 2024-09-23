@@ -13,7 +13,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { STATUS } from "@/app/helpers/claims";
 import useGlobalToast from "@/app/hooks/useGlobalToast";
 import usePostQuery from "@/app/queries/usePostQuery";
-import { CreateItemSchema } from "@/app/lib/yup";
+import { UpdateClaimSchema } from "@/app/lib/yup";
 import { updateClaim as updateClaimAPI } from "@/app/services/admin.service";
 import { Claim, ClaimStatus, CreateClaimFormikData } from "@/app/types/claim";
 
@@ -44,6 +44,7 @@ const UpdateClaimModal: FC<Props> = (props) => {
 
   const handleSubmit = async (formData: CreateClaimFormikData) => {
     const data = {
+      id: claim.id,
       status: formData.status,
     };
 
@@ -83,7 +84,7 @@ const UpdateClaimModal: FC<Props> = (props) => {
         <ModalBody className="update__claim__modal__body" title="modal-body">
           <Formik
             initialValues={InitialValues}
-            validationSchema={CreateItemSchema}
+            validationSchema={UpdateClaimSchema}
             onSubmit={async (values, actions) => {
               actions.setSubmitting(true);
 
@@ -102,7 +103,7 @@ const UpdateClaimModal: FC<Props> = (props) => {
             }}
           >
             {({ isSubmitting, isValid }) => {
-              const isDisabled = isSubmitting;
+              const isDisabled = isSubmitting || !isValid;
 
               return (
                 <Form>
